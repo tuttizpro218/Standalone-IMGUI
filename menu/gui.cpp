@@ -22,7 +22,7 @@ long __stdcall WindowProcess(HWND window,UINT message,WPARAM wideParameter,LPARA
 	}return 0;
 
 	case WM_SYSCOMMAND: {
-		if ((wideParameter & 0xfff0) == SC_KEYMENU)// Disable ALT application menu
+		if ((wideParameter & 0xfff0) == SC_KEYMENU)
 			return 0;
 	}break;
 
@@ -31,7 +31,7 @@ long __stdcall WindowProcess(HWND window,UINT message,WPARAM wideParameter,LPARA
 	}return 0;
 
 	case WM_LBUTTONDOWN: {
-		gui::position = MAKEPOINTS(longParameter); // set click points
+		gui::position = MAKEPOINTS(longParameter);
 	}return 0;
 	
 	case WM_MOUSEMOVE: {
@@ -48,14 +48,7 @@ long __stdcall WindowProcess(HWND window,UINT message,WPARAM wideParameter,LPARA
 			if (gui::position.x >= 0 &&
 				gui::position.x <= gui::WIDTH &&
 				gui::position.y >= 0 && gui::position.y <= 19)
-				SetWindowPos(
-					gui::window,
-					HWND_TOPMOST,
-					rect.left,
-					rect.top,
-					0, 0,
-					SWP_SHOWWINDOW | SWP_NOSIZE | SWP_NOZORDER
-				);
+				SetWindowPos(gui::window,HWND_TOPMOST,rect.left,rect.top,0, 0,SWP_SHOWWINDOW | SWP_NOSIZE | SWP_NOZORDER);
 		}
 
 	}return 0;
@@ -111,13 +104,7 @@ bool gui::CreateDevice() noexcept
 	presentParameters.AutoDepthStencilFormat = D3DFMT_D16;
 	presentParameters.PresentationInterval = D3DPRESENT_INTERVAL_ONE;
 
-	if (d3d->CreateDevice(
-		D3DADAPTER_DEFAULT,
-		D3DDEVTYPE_HAL,
-		window,
-		D3DCREATE_HARDWARE_VERTEXPROCESSING,
-		&presentParameters,
-		&device) < 0)
+	if (d3d->CreateDevice(D3DADAPTER_DEFAULT,D3DDEVTYPE_HAL,window,D3DCREATE_HARDWARE_VERTEXPROCESSING,&presentParameters,&device) < 0)
 		return false;
 
 	return true;
@@ -212,14 +199,7 @@ void gui::Render() noexcept
 {
 	ImGui::SetNextWindowSize({ WIDTH, HEIGHT });
 	ImGui::SetNextWindowPos({ 0, 0 });
-	ImGui::Begin(
-		"test",
-		&exit,
-		ImGuiWindowFlags_NoResize |
-		ImGuiWindowFlags_NoSavedSettings |
-		ImGuiWindowFlags_NoCollapse |
-		ImGuiWindowFlags_NoMove
-	);
+	ImGui::Begin("test", &exit, ImGuiWindowFlags_NoResize |	ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoMove);
 	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 
 	ImGui::End();

@@ -1,3 +1,23 @@
 
 *.user
 *.filters
+*.ipch
+*.opendb
+*.db-wal
+*.db-shm
+.vs/ui/v17/.suo
+*.lock
+*.vsidx
+*.db
+*.pdb
+*.idb
+x64/Debug/ui.tlog/unsuccessfulbuild
+*.lastbuildstate
+*.tlog
+*.log
+*.obj
+*.txt
+*.ipdb
+*.iobj
+*.recipe
+*.exe
