@@ -9,5 +9,6 @@ How to compile this project:
 
 Link to the download: [DirectX End-User Runtimes (June 2010)](https://www.microsoft.com/en-au/download/confirmation.aspx?id=6812)
 
-Picture from the program:
-https://img.tuttifrutti.top/uploads/c1bbgtea.png
+Picture of the running program:
+
+![Screenshot of the program](https://img.tuttifrutti.top/uploads/c1bbgtea.png)
